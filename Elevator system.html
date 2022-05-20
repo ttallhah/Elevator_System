@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator System</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            margin: auto;
+            border: 1px solid black;
+            height: 97vh;
+            width: 100vh;
+        }
+        
+        .head {
+            height: 10vh;
+            width: 100vh;
+            border-bottom: 1px dotted black;
+            text-align: center;
+            line-height: 65px;
+        }
+        
+        .lift {
+            width: 21vh;
+            height: 84vh;
+            border-right: 1PX dashed BLACK;
+            box-sizing: border-box;
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+        
+        .buttons {
+            width: 60px;
+            margin-bottom: 10px;
+            height: 5vh;
+            cursor: pointer;
+            margin-top: 3px;
+        }
+        
+        .active {
+            background-color: rgb(101, 222, 45);
+        }
+        
+        .logs {
+            float: right;
+            margin-right: 0px;
+            border-bottom: 1px dashed rgb(10, 10, 1);
+            width: 78vh;
+        }
+        
+        .row {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h2>Elevator</h2>
+        </div>
+        <div class="row">
+            <div class="logs">
+                <p>Logs Will Print Here</p>
+            </div>
+            <div class="lift">
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">B1</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons active">G</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">1</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">2</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">3</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">4</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">5</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">6</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">7</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">8</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">UP</button>
+                    <button class="buttons">9</button>
+                    <button class="upDown">DN</button>
+                </div>
+                <div>
+                    <button class="upDown">DN</button>
+                    <button class="buttons">10</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
