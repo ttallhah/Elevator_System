@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: auto;
+    border: 1px solid black;
+    height: 97vh;
+    width: 100vh;
+}
+
+.head {
+    height: 10vh;
+    width: 100vh;
+    border-bottom: 1px dotted black;
+    text-align: center;
+    line-height: 65px;
+}
+
+.lift {
+    width: 21vh;
+    height: 84vh;
+    border-right: 1PX dashed BLACK;
+    box-sizing: border-box;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.buttons {
+    width: 60px;
+    margin-bottom: 10px;
+    height: 5vh;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.active {
+    background-color: rgb(101, 222, 45);
+}
+
+.logs {
+    float: right;
+    margin-right: 0px;
+    border-bottom: 1px dashed rgb(10, 10, 1);
+    width: 78vh;
+}
+
+.row {
+    margin: auto;
+}
