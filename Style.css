@@ -34,17 +34,23 @@
     margin-top: 3px;
 }
 
-.active {
-    background-color: rgb(101, 222, 45);
+.active,
+.current {
+    background-color: yellow;
 }
 
 .logs {
     float: right;
     margin-right: 0px;
-    border-bottom: 1px dashed rgb(10, 10, 1);
+    border-bottom: 1px dashed rgb(80, 80, 70);
     width: 78vh;
+    color: rgb(62, 93, 50);
 }
 
 .row {
     margin: auto;
+}
+
+.selected {
+    border: 3px solid rgb(112, 255, 11);
 }
