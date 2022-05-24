@@ -2,25 +2,34 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(5, 20, 60);
+}
+
+.head {
+    color: beige;
+}
+
 .container {
     margin: auto;
     border: 1px solid black;
-    height: 97vh;
+    height: 100%;
     width: 100vh;
+    background-color: rgb(4, 15, 42);
 }
 
 .head {
     height: 10vh;
     width: 100vh;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px solid black;
     text-align: center;
     line-height: 65px;
 }
 
 .lift {
-    width: 21vh;
-    height: 84vh;
-    border-right: 1PX dashed BLACK;
+    width: 21%;
+    height: 98%;
+    border-right: 1PX solid BLACK;
     box-sizing: border-box;
     padding-top: 5px;
     padding-left: 5px;
@@ -44,7 +53,15 @@
     margin-right: 0px;
     border-bottom: 1px dashed rgb(80, 80, 70);
     width: 78vh;
-    color: rgb(62, 93, 50);
+    color: rgb(3, 3, 3);
+    overflow: hidden;
+    height: fit-content;
+}
+
+#Logs {
+    margin-left: 5px;
+    font-weight: bolder;
+    color: rgb(210, 210, 210);
 }
 
 .row {
@@ -52,5 +69,5 @@
 }
 
 .selected {
-    border: 3px solid rgb(112, 255, 11);
+    border: 3px solid rgb(106, 255, 0);
 }

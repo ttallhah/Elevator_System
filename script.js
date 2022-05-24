@@ -1,35 +1,87 @@
-let btns = document.getElementsByClassName('buttons');
-for (let btn of btns) {
-    btn.addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    elv = new Elevator(-1, 10)
+    btns = document.getElementsByClassName('buttons')
+    for (let btn of btns) {
+        btn.addEventListener('click', () => {
             btn.classList.add('selected')
-            let id = btn.innerText
-            let current_floor = document.querySelector('div.lift button.active').id.replace("button-floor-", "")
-            let selected_floor = document.querySelector('div.lift button.buttons.selected').id.replace("button-floor-", "")
-            current_floor = parseInt(current_floor);
-            selected_floor = parseInt(selected_floor);
+            let floor = document.querySelector('div.lift button.buttons.selected').id.replace("button-floor-", "");
+            floor = parseInt(floor)
+            elv.call(floor)
+        })
+    }
+})
+class Elevator {
+    constructor(minFloor, maxFloor) {
+        this.selected_floors = []
+        this.next = null
+        this.current_floor = 0
+        this.interval = null
+    }
 
-            let floor_interval = setInterval(function() {
-                document.getElementById(`button-floor-${current_floor}`).classList.remove('active')
-                if (current_floor < selected_floor) {
-                    current_floor++;
-                    document.getElementById("Logs").innerHTML = `Lift is at ${current_floor}`;
-                } else if (selected_floor < current_floor) {
-                    current_floor--
-                    document.getElementById("Logs").innerHTML = `Lift is at ${current_floor}`;
-                }
-
-                document.getElementById(`button-floor-${current_floor}`).classList.add('active')
-                if (current_floor == selected_floor) {
-                    document.getElementById(`button-floor-${current_floor}`).classList.remove('selected')
-                    clearInterval(floor_interval)
-                    document.getElementById("Logs").innerHTML = "Lift has arrived";
-                    setInterval(function() {
-                        document.getElementById("Logs").innerHTML = "Doors Are oppened";
-                    }, 3000)
-                }
-            }, 2000)
+    call(floor) {
+        // this.current_floor = document.querySelector('div.lift button.active').id.replace("button-floor-", "");
+        if (!this.selected_floors.includes(floor)) {
+            this.selected_floors.push(floor);
         }
 
-    )
+        // Elevator is idle
+        if (this.interval == null) {
+            this.move()
+        }
+    }
 
+    move() {
+        elv = this
+        this.next = elv.selected_floors[0]
+        this.interval = setInterval(function() {
+            elv.lightDown()
+
+            if (elv.current_floor < elv.next) {
+                elv.current_floor++;
+                console.log(elv.current_floor);
+
+            } else if (elv.next < elv.current_floor) {
+                elv.current_floor--;
+                console.log(elv.current_floor);
+            }
+            elv.lightUp()
+            let log = null
+            if (elv.current_floor == -1) {
+                log = `<p>Lift is at Basement1</p>`;
+            } else {
+                log = `<p>Lift is at Floor# ${elv.current_floor}</p>`;
+            }
+            const h2 = document.getElementById("Logs");
+            h2.insertAdjacentHTML("beforeend", log);
+
+
+
+
+            if (elv.current_floor == elv.next) {
+                document.getElementById(`button-floor-${elv.current_floor}`).classList.remove('selected')
+                const h3 = document.getElementById("Logs");
+                log = "<h3>Doors opened</h3>";
+                h3.insertAdjacentHTML("beforeend", log);
+                setTimeout(function() {
+                    const h3 = document.getElementById("Logs");
+                    log = "<h3>Doors closed</h3>";
+                    h3.insertAdjacentHTML("beforeend", log);
+                }, 3000)
+
+                elv.selected_floors.shift()
+                elv.next = elv.selected_floors[0]
+
+                clearInterval(elv.interval);
+            }
+
+        }, 1000)
+    }
+
+    lightDown() {
+        document.getElementById(`button-floor-${this.current_floor}`).classList.remove('current');
+    }
+
+    lightUp() {
+        document.getElementById(`button-floor-${this.current_floor}`).classList.add('current');
+    }
 }
