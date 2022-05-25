@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let btn of btns) {
         btn.addEventListener('click', () => {
             btn.classList.add('selected')
-            let floor = document.querySelector('div.lift button.buttons.selected').id.replace("button-floor-", "");
+            let floor = btn.id.replace("button-floor-", "");
             floor = parseInt(floor)
             elv.call(floor)
         })
@@ -28,6 +28,7 @@ class Elevator {
         if (this.interval == null) {
             this.move()
         }
+        console.log(this.selected_floors)
     }
 
     move() {
@@ -37,11 +38,13 @@ class Elevator {
             elv.lightDown()
 
             if (elv.current_floor < elv.next) {
+
                 elv.current_floor++;
-                console.log(elv.current_floor);
+
 
             } else if (elv.next < elv.current_floor) {
                 elv.current_floor--;
+
                 console.log(elv.current_floor);
             }
             elv.lightUp()
@@ -70,8 +73,14 @@ class Elevator {
 
                 elv.selected_floors.shift()
                 elv.next = elv.selected_floors[0]
+                if (elv.selected_floors.length == 0) {
+                    clearInterval(elv.interval);
+                    elv.interval = null;
+                } else {
+                    elev.move()
+                }
 
-                clearInterval(elv.interval);
+
             }
 
         }, 1000)

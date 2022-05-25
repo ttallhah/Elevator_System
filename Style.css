@@ -43,7 +43,10 @@ body {
     margin-top: 3px;
 }
 
-.active,
+.active {
+    background-color: green;
+}
+
 .current {
     background-color: yellow;
 }
